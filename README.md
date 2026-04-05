@@ -1,22 +1,25 @@
-# js_lessons
+# Exercise 1.1: Refactor Legacy `var` to `let/const`
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+Learn how `var` creates hidden bugs in loop closures and refactor legacy utility code to predictable `let/const` behavior.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## Task
 
-Recommended workflow:
+1. Open `src/index.js`.
+2. Replace legacy `var`-based implementation with `let/const`.
+3. Keep function signatures unchanged.
+4. Make all tests pass.
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Constraints
 
-Scripts:
+- do not change exported function names
+- do not change returned data shape
+- avoid `var` in the final solution
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+## Run locally
+
+```bash
+npm install
+npm run test
+```
