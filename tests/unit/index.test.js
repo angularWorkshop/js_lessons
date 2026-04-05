@@ -1,47 +1,56 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { buildLessonHandlers, normalizeLegacyStudents } from '../../src/index.js';
+import { buildWelcomeState, parseAge, sanitizeUserName } from '../../src/index.js';
 
-describe('normalizeLegacyStudents', () => {
-  it('normalizes name, track and score', () => {
-    const result = normalizeLegacyStudents([
-      { name: '  Alice  ', track: 'Frontend', score: '42' },
-      { name: 'Bob', track: undefined, score: 5 },
-    ]);
-
-    expect(result).toEqual([
-      { id: 'student-1', name: 'Alice', track: 'frontend', score: 42 },
-      { id: 'student-2', name: 'Bob', track: 'general', score: 5 },
-    ]);
+describe('sanitizeUserName', () => {
+  it('trims surrounding spaces', () => {
+    expect(sanitizeUserName('  Аня  ')).toBe('Аня');
   });
 
-  it('falls back to 0 for non-numeric scores', () => {
-    const result = normalizeLegacyStudents([{ name: 'Eve', track: 'QA', score: 'oops' }]);
-    expect(result[0].score).toBe(0);
+  it('uses guest fallback for empty input', () => {
+    expect(sanitizeUserName('   ')).toBe('Гость');
   });
 });
 
-describe('buildLessonHandlers', () => {
-  it('creates a handler per title', () => {
-    const handlers = buildLessonHandlers(['Intro', 'Variables', 'Functions']);
-    expect(handlers).toHaveLength(3);
+describe('parseAge', () => {
+  it('parses numeric input', () => {
+    expect(parseAge('21')).toBe(21);
   });
 
-  it('keeps stable index and title for each handler', () => {
-    const handlers = buildLessonHandlers(['Intro', 'Variables', 'Functions']);
+  it('returns null for invalid values', () => {
+    expect(parseAge('abc')).toBeNull();
+    expect(parseAge('')).toBeNull();
+  });
+});
 
-    expect(handlers[0]()).toBe('[0] Intro');
-    expect(handlers[1]()).toBe('[1] Variables');
-    expect(handlers[2]()).toBe('[2] Functions');
+describe('buildWelcomeState', () => {
+  it('builds a start-ready state for valid confirmed input', () => {
+    expect(buildWelcomeState('  Аня  ', '19', true)).toEqual({
+      strictMode: true,
+      name: 'Аня',
+      age: 19,
+      canStart: true,
+      message: 'Привет, Аня!',
+    });
+  });
+
+  it('keeps start locked when age is invalid', () => {
+    expect(buildWelcomeState('', 'abc', true)).toEqual({
+      strictMode: true,
+      name: 'Гость',
+      age: null,
+      canStart: false,
+      message: 'Привет, Гость!',
+    });
   });
 });
 
 describe('style guard', () => {
-  it('does not use var in final solution', () => {
+  it('keeps strict mode enabled in source', () => {
     const sourcePath = path.resolve(process.cwd(), 'src/index.js');
     const source = fs.readFileSync(sourcePath, 'utf8');
 
-    expect(source).not.toMatch(/\bvar\b/);
+    expect(source).toContain("'use strict';");
   });
 });
