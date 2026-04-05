@@ -1,13 +1,13 @@
 'use strict';
 
 export function normalizeLegacyStudents(rawStudents) {
-  var normalized = [];
+  const normalized = [];
 
-  for (var i = 0; i < rawStudents.length; i += 1) {
-    var student = rawStudents[i] || {};
-    var name = String(student.name || '').trim();
-    var track = String(student.track || 'general').toLowerCase();
-    var score = Number(student.score ?? 0);
+  for (let i = 0; i < rawStudents.length; i += 1) {
+    const student = rawStudents[i] || {};
+    const name = String(student.name || '').trim();
+    const track = String(student.track || 'general').toLowerCase();
+    const score = Number(student.score ?? 0);
 
     normalized.push({
       id: `student-${i + 1}`,
@@ -21,11 +21,10 @@ export function normalizeLegacyStudents(rawStudents) {
 }
 
 export function buildLessonHandlers(lessonTitles) {
-  var handlers = [];
+  const handlers = [];
 
-  // TODO: refactor this loop to let/const so each handler keeps its own index and title.
-  for (var i = 0; i < lessonTitles.length; i += 1) {
-    var title = lessonTitles[i];
+  for (let i = 0; i < lessonTitles.length; i += 1) {
+    const title = lessonTitles[i];
 
     handlers.push(function handler() {
       return `[${i}] ${title}`;
