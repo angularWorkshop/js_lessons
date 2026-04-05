@@ -1,13 +1,13 @@
-# Exercise 1.1: Refactor Legacy `var` to `let/const`
+# Exercise 1.1: First JavaScript Script and Basic Input State
 
 ## Goal
 
-Learn how `var` creates hidden bugs in loop closures and refactor legacy utility code to predictable `let/const` behavior.
+Build a beginner-friendly JavaScript starter flow with `use strict`, variables, simple input normalization, and explicit type conversion.
 
 ## Task
 
 1. Open `src/index.js`.
-2. Replace legacy `var`-based implementation with `let/const`.
+2. Complete all `TODO` markers.
 3. Keep function signatures unchanged.
 4. Make all tests pass.
 
@@ -15,7 +15,7 @@ Learn how `var` creates hidden bugs in loop closures and refactor legacy utility
 
 - do not change exported function names
 - do not change returned data shape
-- avoid `var` in the final solution
+- keep logic explicit and beginner-friendly
 
 ## Run locally
 

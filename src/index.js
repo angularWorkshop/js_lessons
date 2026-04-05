@@ -1,36 +1,29 @@
 'use strict';
 
-export function normalizeLegacyStudents(rawStudents) {
-  var normalized = [];
+export function sanitizeUserName(rawName) {
+  const value = String(rawName ?? '').trim();
 
-  for (var i = 0; i < rawStudents.length; i += 1) {
-    var student = rawStudents[i] || {};
-    var name = String(student.name || '').trim();
-    var track = String(student.track || 'general').toLowerCase();
-    var score = Number(student.score ?? 0);
-
-    normalized.push({
-      id: `student-${i + 1}`,
-      name,
-      track,
-      score: Number.isFinite(score) ? score : 0,
-    });
-  }
-
-  return normalized;
+  // TODO: return 'Гость' when the input is empty after trim.
+  return value;
 }
 
-export function buildLessonHandlers(lessonTitles) {
-  var handlers = [];
+export function parseAge(rawAge) {
+  // TODO: convert input to a number and return null when value is invalid.
+  return Number(rawAge);
+}
 
-  // TODO: refactor this loop to let/const so each handler keeps its own index and title.
-  for (var i = 0; i < lessonTitles.length; i += 1) {
-    var title = lessonTitles[i];
+export function buildWelcomeState(rawName, rawAge, isConfirmed) {
+  const name = sanitizeUserName(rawName);
+  const age = parseAge(rawAge);
 
-    handlers.push(function handler() {
-      return `[${i}] ${title}`;
-    });
-  }
+  // TODO: allow start only when user confirmed and age is a valid number.
+  const canStart = false;
 
-  return handlers;
+  return {
+    strictMode: true,
+    name,
+    age,
+    canStart,
+    message: `Привет, ${name}!`,
+  };
 }
