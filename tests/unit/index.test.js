@@ -1,28 +1,34 @@
 import { describe, expect, it } from 'vitest';
-import {
-  buildPriceState,
-  calculateDiscountAmount,
-  calculateFinalPrice,
-} from '../../src/index.js';
+import { getAccessState } from '../../src/index.js';
 
-describe('discount calculator', () => {
-  it('calculates the discount amount', () => {
-    expect(calculateDiscountAmount(200, 15)).toBe(30);
-    expect(calculateDiscountAmount(120, 0)).toBe(0);
+describe('access comparisons', () => {
+  it('grants access when all rules are satisfied', () => {
+    expect(getAccessState(18, true, true)).toEqual({
+      isOldEnough: true,
+      hasAccessPayment: true,
+      introCompleted: true,
+      canOpenWorkshop: true,
+      message: 'Access granted',
+    });
   });
 
-  it('calculates the final price after discount', () => {
-    expect(calculateFinalPrice(200, 15)).toBe(170);
-    expect(calculateFinalPrice(80, 25)).toBe(60);
+  it('denies access when age is too low', () => {
+    expect(getAccessState(17, true, true)).toEqual({
+      isOldEnough: false,
+      hasAccessPayment: true,
+      introCompleted: true,
+      canOpenWorkshop: false,
+      message: 'Access denied',
+    });
   });
 
-  it('builds a predictable price state', () => {
-    expect(buildPriceState(200, 15)).toEqual({
-      basePrice: 200,
-      discountPercent: 15,
-      discountAmount: 30,
-      finalPrice: 170,
-      label: 'Final price: 170',
+  it('denies access when payment is missing', () => {
+    expect(getAccessState(19, false, true)).toEqual({
+      isOldEnough: true,
+      hasAccessPayment: false,
+      introCompleted: true,
+      canOpenWorkshop: false,
+      message: 'Access denied',
     });
   });
 });

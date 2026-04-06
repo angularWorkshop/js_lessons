@@ -1,22 +1,22 @@
 'use strict';
 
-export function calculateDiscountAmount(basePrice, discountPercent) {
-  return (basePrice * discountPercent) / 100;
-}
+export function getAccessState(age, hasPaidAccess, completedIntro) {
+  // TODO: a user who is exactly 18 should also be old enough.
+  const isOldEnough = age > 18;
 
-export function calculateFinalPrice(basePrice, discountPercent) {
-  return basePrice - calculateDiscountAmount(basePrice, discountPercent);
-}
+  // TODO: this comparison should work with a real boolean value.
+  const hasAccessPayment = hasPaidAccess === 'true';
 
-export function buildPriceState(basePrice, discountPercent) {
-  const discountAmount = calculateDiscountAmount(basePrice, discountPercent);
-  const finalPrice = calculateFinalPrice(basePrice, discountPercent);
+  // TODO: this comparison should work with a real boolean value too.
+  const introCompleted = completedIntro === 'yes';
+
+  const canOpenWorkshop = isOldEnough && hasAccessPayment && introCompleted;
 
   return {
-    basePrice,
-    discountPercent,
-    discountAmount,
-    finalPrice,
-    label: `Final price: ${finalPrice}`,
+    isOldEnough,
+    hasAccessPayment,
+    introCompleted,
+    canOpenWorkshop,
+    message: canOpenWorkshop ? 'Access granted' : 'Access denied',
   };
 }
