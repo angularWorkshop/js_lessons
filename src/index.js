@@ -5,11 +5,10 @@ export function createCounter(start = 0) {
 
   return {
     increment() {
-      // TODO: increase current by 1
+      current += 1;
     },
     getValue() {
-      // TODO: return the current value
-      return null;
+      return current;
     },
   };
 }
@@ -25,6 +24,6 @@ export function buildCounterState() {
   return {
     lessonValue: lessonCounter.getValue(),
     projectValue: projectCounter.getValue(),
-    independent: false, // TODO: compare both counters and show that they keep separate state
+    independent: lessonCounter.getValue() !== projectCounter.getValue(),
   };
 }
