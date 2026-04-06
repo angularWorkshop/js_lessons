@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 9.2 - Search Form State
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise treats search not as one filter call, but as a small UI state machine.
+You will distinguish invalid, empty, success, and error states and reflect them in the DOM.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- normalize search input before validation
+- build explicit UI states from one query
+- keep status text and result count aligned with state
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `normalizeSearchQuery`, trim the raw value and convert it to lower case.
+2. In `createSearchState`, return `invalid`, `empty`, `success`, or `error` with a helpful message.
+3. In `syncSearchUI`, write the current state into the DOM.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
