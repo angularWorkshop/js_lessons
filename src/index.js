@@ -1,15 +1,15 @@
 'use strict';
 
 export function mergeWorkshopSettings(defaultSettings, userSettings) {
-  // TODO: merge defaults and user settings
-  return {};
+  return {
+    ...defaultSettings,
+    ...userSettings,
+  };
 }
 
 export function buildSettingsSummary(defaultSettings, userSettings) {
   const settings = mergeWorkshopSettings(defaultSettings, userSettings);
-  const theme = settings.theme;
-  const language = settings.language;
-  const pageSize = settings.pageSize;
+  const { theme, language, pageSize } = settings;
 
-  return ''; // TODO: return "Theme: ..., language: ..., page size: ..."
+  return `Theme: ${theme}, language: ${language}, page size: ${pageSize}`;
 }
