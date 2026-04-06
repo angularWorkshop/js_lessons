@@ -1,37 +1,19 @@
-﻿'use strict';
+'use strict';
 
-export function sanitizeUserName(rawName) {
-  const value = String(rawName ?? '').trim();
-  return value === '' ? 'Guest' : value;
-}
+export const courseName = 'JavaScript Start';
+export const studentName = 'Mila';
+export const lessonNumber = 1;
+export const isReady = true;
 
-export function parseAge(rawAge) {
-  if (rawAge === null || rawAge === undefined) {
-    return null;
-  }
+export const introMessage = `Hello, ${studentName}!`;
+export const consoleLine = `${introMessage} Lesson ${lessonNumber} is ready.`;
 
-  if (typeof rawAge === 'string' && rawAge.trim() === '') {
-    return null;
-  }
-
-  const parsed = Number(rawAge);
-  if (!Number.isFinite(parsed) || parsed < 0) {
-    return null;
-  }
-
-  return parsed;
-}
-
-export function buildWelcomeState(rawName, rawAge, isConfirmed) {
-  const name = sanitizeUserName(rawName);
-  const age = parseAge(rawAge);
-  const canStart = Boolean(isConfirmed) && age !== null;
-
-  return {
-    strictMode: true,
-    name,
-    age,
-    canStart,
-    message: `Hello, ${name}!`,
-  };
-}
+export const firstScriptState = {
+  strictMode: true,
+  courseName,
+  studentName,
+  lessonNumber,
+  isReady,
+  introMessage,
+  consoleLine,
+};
