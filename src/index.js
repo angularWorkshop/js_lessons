@@ -1,37 +1,24 @@
 'use strict';
 
-export function toNumber(rawValue) {
-  if (rawValue === null || rawValue === '') {
-    return null;
-  }
-
-  const numberValue = Number(rawValue);
-
-  if (Number.isNaN(numberValue)) {
-    return null;
-  }
-
-  return numberValue;
+export function calculateDiscountAmount(basePrice, discountPercent) {
+  // TODO: calculate how much money should be subtracted from the base price.
+  return 0;
 }
 
-export function sumPromptValues(firstRawValue, secondRawValue) {
-  const firstNumber = toNumber(firstRawValue);
-  const secondNumber = toNumber(secondRawValue);
-
-  if (firstNumber === null || secondNumber === null) {
-    return null;
-  }
-
-  return firstNumber + secondNumber;
+export function calculateFinalPrice(basePrice, discountPercent) {
+  // TODO: use calculateDiscountAmount and return the final price after discount.
+  return basePrice;
 }
 
-export function buildCalculatorState(firstRawValue, secondRawValue) {
-  const result = sumPromptValues(firstRawValue, secondRawValue);
+export function buildPriceState(basePrice, discountPercent) {
+  const discountAmount = calculateDiscountAmount(basePrice, discountPercent);
+  const finalPrice = calculateFinalPrice(basePrice, discountPercent);
 
   return {
-    firstRawValue,
-    secondRawValue,
-    result,
-    message: result === null ? 'Enter two numbers.' : `Result: ${result}`,
+    basePrice,
+    discountPercent,
+    discountAmount,
+    finalPrice,
+    label: `Final price: ${finalPrice}`,
   };
 }
