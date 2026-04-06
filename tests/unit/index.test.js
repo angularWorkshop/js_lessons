@@ -1,34 +1,37 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { declarationsReport } from '../../src/index.js';
+import {
+  displayName,
+  finishedLessons,
+  hasMentorAccess,
+  mentorNote,
+  nextLessonId,
+  studentTypeState,
+} from '../../src/index.js';
 
-describe('declaration repair', () => {
-  it('keeps strict mode as the first statement', () => {
-    const sourcePath = path.resolve(process.cwd(), 'src/index.js');
-    const source = fs.readFileSync(sourcePath, 'utf8');
-
-    expect(source.trimStart().startsWith("'use strict';")).toBe(true);
+describe('basic values', () => {
+  it('keeps the expected values', () => {
+    expect(displayName).toBe('Mila');
+    expect(finishedLessons).toBe(2);
+    expect(hasMentorAccess).toBe(false);
+    expect(mentorNote).toBeNull();
+    expect(nextLessonId).toBeUndefined();
   });
 
-  it('uses modern declarations in the right places', () => {
-    const sourcePath = path.resolve(process.cwd(), 'src/index.js');
-    const source = fs.readFileSync(sourcePath, 'utf8');
-
-    expect(source).toMatch(/export const courseName =/);
-    expect(source).toMatch(/export const mentorName =/);
-    expect(source).toMatch(/export let completedTasks =/);
-    expect(source).toMatch(/export let screenStatus =/);
-    expect(source).not.toMatch(/\bvar\b/);
+  it('keeps the expected types', () => {
+    expect(typeof displayName).toBe('string');
+    expect(typeof finishedLessons).toBe('number');
+    expect(typeof hasMentorAccess).toBe('boolean');
+    expect(mentorNote).toBeNull();
+    expect(nextLessonId).toBeUndefined();
   });
 
-  it('keeps the final runtime report correct', () => {
-    expect(declarationsReport).toEqual({
-      courseName: 'JavaScript Basics',
-      mentorName: 'Denis',
-      completedTasks: 2,
-      screenStatus: 'ready',
-      usesVar: false,
+  it('returns a complete state object', () => {
+    expect(studentTypeState).toEqual({
+      displayName: 'Mila',
+      finishedLessons: 2,
+      hasMentorAccess: false,
+      mentorNote: null,
+      nextLessonId: undefined,
     });
   });
 });
