@@ -1,13 +1,15 @@
 ﻿'use strict';
 
 export function calculateAverageLessonMinutes(totalMinutes, lessonsCount) {
-  // TODO: return 0 when lessonsCount is 0, otherwise calculate the average
-  return 0;
+  if (lessonsCount === 0) {
+    return 0;
+  }
+
+  return totalMinutes / lessonsCount;
 }
 
 export function formatAverageMinutes(averageMinutes) {
-  // TODO: use toFixed(1) and return a string like '18.3 min'
-  return '';
+  return `${averageMinutes.toFixed(1)} min`;
 }
 
 export function buildAverageDurationState(totalMinutes, lessonsCount) {
@@ -17,6 +19,6 @@ export function buildAverageDurationState(totalMinutes, lessonsCount) {
     totalMinutes,
     lessonsCount,
     averageMinutes,
-    averageLabel: '', // TODO: use formatAverageMinutes
+    averageLabel: formatAverageMinutes(averageMinutes),
   };
 }
