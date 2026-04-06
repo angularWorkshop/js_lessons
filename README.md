@@ -1,31 +1,31 @@
-# Topic 3.2 - Workshop Access Rules
+# Topic 3.2 - Status Label with switch and Fallback
 
 ## Goal
 
-This exercise trains normal conditional logic with more than one rule.
-We are building a tiny access decision for a workshop, and each condition changes the final answer.
+This exercise trains one more common branching pattern:
+we map a known code to a readable label, and if the code is unknown, we use a fallback value.
 
 ## Task
 
 Finish `src/index.js`.
 
-1. Adults aged 18 or older can start when they accepted the rules.
-2. Teenagers from 14 to 17 can start only when they accepted the rules and have parent consent.
-3. Users younger than 14 cannot start.
-4. Build the final state object with the correct `canStart` and `message`.
+1. Use `switch` in `getStatusLabel`.
+2. Return the correct label for known status codes.
+3. For an unknown code, return `customLabel ?? 'Unknown status'`.
+4. Keep `buildStatusState` aligned with the final label.
 
 ## Expected runtime result
 
-- `buildWorkshopAccessState(20, true, false)` grants access
-- `buildWorkshopAccessState(16, true, true)` grants access
-- `buildWorkshopAccessState(16, true, false)` denies access
-- `buildWorkshopAccessState(12, true, true)` denies access
+- `'draft'` becomes `'Draft'`
+- `'review'` becomes `'In review'`
+- an unknown code uses `customLabel` when it exists
+- an unknown code without a custom label uses `'Unknown status'`
 
 ## Why this matters
 
-- real conditions almost never depend on only one value
-- grouping rules clearly is more important than writing a short expression
-- the result should read like a business rule, not like a puzzle
+- `switch` is useful when one value can lead to several named outcomes
+- fallback logic should be explicit, not hidden
+- `??` is different from `||`: an empty string should not be replaced automatically
 
 ## StackBlitz auto-check mode
 

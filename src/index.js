@@ -1,25 +1,17 @@
 'use strict';
 
-export function canStartWorkshop(age, acceptedRules, hasParentConsent) {
-  if (age >= 18) {
-    return acceptedRules === true;
-  }
-
-  if (age >= 14) {
-    return acceptedRules === true && hasParentConsent === true;
-  }
-
-  return false;
+export function getStatusLabel(statusCode, customLabel) {
+  // TODO: implement this function with switch and a nullish fallback.
+  return '';
 }
 
-export function buildWorkshopAccessState(age, acceptedRules, hasParentConsent) {
-  const canStart = canStartWorkshop(age, acceptedRules, hasParentConsent);
+export function buildStatusState(statusCode, customLabel) {
+  const label = getStatusLabel(statusCode, customLabel);
 
   return {
-    age,
-    acceptedRules,
-    hasParentConsent,
-    canStart,
-    message: canStart ? 'Access granted' : 'Access denied',
+    statusCode,
+    customLabel,
+    label,
+    displayLine: `Status: ${label}`,
   };
 }

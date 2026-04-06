@@ -1,38 +1,32 @@
 import { describe, expect, it } from 'vitest';
 import {
-  buildWorkshopAccessState,
-  canStartWorkshop,
+  buildStatusState,
+  getStatusLabel,
 } from '../../src/index.js';
 
-describe('workshop access rules', () => {
-  it('grants access to an adult who accepted the rules', () => {
-    expect(canStartWorkshop(20, true, false)).toBe(true);
+describe('status switch fallback', () => {
+  it('returns labels for known status codes', () => {
+    expect(getStatusLabel('draft')).toBe('Draft');
+    expect(getStatusLabel('review')).toBe('In review');
+    expect(getStatusLabel('published')).toBe('Published');
+    expect(getStatusLabel('archived')).toBe('Archived');
   });
 
-  it('grants access to a teenager only with parent consent', () => {
-    expect(canStartWorkshop(16, true, true)).toBe(true);
-    expect(canStartWorkshop(16, true, false)).toBe(false);
+  it('uses the custom label for an unknown status', () => {
+    expect(getStatusLabel('syncing', 'Waiting for sync')).toBe('Waiting for sync');
   });
 
-  it('denies access to users younger than 14', () => {
-    expect(canStartWorkshop(12, true, true)).toBe(false);
+  it('uses a nullish fallback for an unknown status', () => {
+    expect(getStatusLabel('syncing', undefined)).toBe('Unknown status');
+    expect(getStatusLabel('syncing', '')).toBe('');
   });
 
-  it('builds the correct final state object', () => {
-    expect(buildWorkshopAccessState(16, true, true)).toEqual({
-      age: 16,
-      acceptedRules: true,
-      hasParentConsent: true,
-      canStart: true,
-      message: 'Access granted',
-    });
-
-    expect(buildWorkshopAccessState(16, true, false)).toEqual({
-      age: 16,
-      acceptedRules: true,
-      hasParentConsent: false,
-      canStart: false,
-      message: 'Access denied',
+  it('builds a predictable status state object', () => {
+    expect(buildStatusState('published')).toEqual({
+      statusCode: 'published',
+      customLabel: undefined,
+      label: 'Published',
+      displayLine: 'Status: Published',
     });
   });
 });
