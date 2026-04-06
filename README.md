@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 8.1 - Toggle an Active Menu Item
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise trains a very common interface state pattern:
+exactly one menu item must stay active after an update.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- loop through DOM candidates and update them consistently
+- toggle a class and an accessibility attribute from one rule
+- read the active item back into a plain JavaScript object
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `setActiveMenuItem`, keep only the target item active.
+2. In `readActiveMenuItem`, return the id and label of the current active item.
+3. In `buildMenuState`, apply the update and return the final menu state.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
