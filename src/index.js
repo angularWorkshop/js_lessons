@@ -7,6 +7,6 @@ export function buildWorkshopDashboardState(name, completedLessons, totalLessons
 
   return {
     card,
-    readyToContinue: false, // TODO: true when remainingLessons is more than 0
+    readyToContinue: card.remainingLessons > 0,
   };
 }
