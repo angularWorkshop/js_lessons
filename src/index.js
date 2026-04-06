@@ -1,13 +1,15 @@
 ﻿'use strict';
 
 export function buildStudentFullName(firstName, lastName) {
-  // TODO: return one string with firstName and lastName
-  return '';
+  return `${firstName} ${lastName}`;
 }
 
 export function calculateProgressPercent(completedLessons, totalLessons) {
-  // TODO: return a rounded percentage; if totalLessons is 0, return 0
-  return 0;
+  if (totalLessons === 0) {
+    return 0;
+  }
+
+  return Math.round((completedLessons / totalLessons) * 100);
 }
 
 export function buildStudentCardState(firstName, lastName, completedLessons, totalLessons) {
@@ -19,7 +21,7 @@ export function buildStudentCardState(firstName, lastName, completedLessons, tot
     completedLessons,
     totalLessons,
     progressPercent,
-    hasStarted: false, // TODO: completedLessons > 0
-    statusLine: '', // TODO: `${fullName}: ${progressPercent}% completed`
+    hasStarted: completedLessons > 0,
+    statusLine: `${fullName}: ${progressPercent}% completed`,
   };
 }
