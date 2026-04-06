@@ -1,3 +1,6 @@
-export function hello() {
-  return 'js_lessons baseline';
+'use strict';
+
+export function buildWorkflowScripts(baseScripts) {
+  // TODO: merge base scripts with dev/test/build/check
+  void baseScripts;
 }
