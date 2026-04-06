@@ -1,22 +1,20 @@
-# js_lessons
+﻿# Topic 5.3 - Filter Paid Orders and Sum the Total
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise introduces a common two-step pattern:
+keep only the needed records, then calculate one final total from them.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- use `filter()` to keep only matching items
+- use `reduce()` to accumulate one number
+- build a state object from filtered data
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `filterPaidOrders`, keep only orders with `status === 'paid'`.
+2. In `calculatePaidTotal`, use `reduce()` to sum the amounts.
+3. In `buildPaidOrdersState`, return the count, total, and label.
