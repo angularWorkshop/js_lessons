@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 10.1 - Progress Interval
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise treats an interval as a repeating process with a clear ending.
+You will start progress updates, stop them at the maximum, and keep state predictable.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- repeat work with `setInterval`
+- stop repeated work with `clearInterval`
+- model progress as a lifecycle, not just a changing number
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `startProgress`, create an interval, move state to `running`, and store `intervalId`.
+2. On each tick, increase `state.value` without crossing `state.max`.
+3. When progress reaches `max`, clear the interval and move state to `done`.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
