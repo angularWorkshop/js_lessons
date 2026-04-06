@@ -1,32 +1,23 @@
-﻿'use strict';
+'use strict';
 
-export function sanitizeUserName(rawName) {
-  const value = String(rawName ?? '').trim();
+export const courseName = 'TODO';
+export const studentName = 'TODO';
+export const lessonNumber = 0;
+export const isReady = false;
 
-  // TODO: return "Guest" when value is empty after trim.
-  return value;
-}
+// TODO: build a greeting for the current student.
+export const introMessage = '';
 
-export function parseAge(rawAge) {
-  // TODO:
-  // 1) return null for "", whitespace-only strings, null, and undefined
-  // 2) convert value with Number(...)
-  // 3) return null for NaN, Infinity, and negative values
-  return Number(rawAge);
-}
+// TODO: build the final output line for the script.
+export const consoleLine = '';
 
-export function buildWelcomeState(rawName, rawAge, isConfirmed) {
-  const name = sanitizeUserName(rawName);
-  const age = parseAge(rawAge);
-
-  // TODO: canStart should be true only when confirmed and age is valid.
-  const canStart = false;
-
-  return {
-    strictMode: true,
-    name,
-    age,
-    canStart,
-    message: `Hello, ${name}!`,
-  };
-}
+// TODO: mark strictMode correctly and keep the rest of the fields in sync.
+export const firstScriptState = {
+  strictMode: false,
+  courseName,
+  studentName,
+  lessonNumber,
+  isReady,
+  introMessage,
+  consoleLine,
+};
