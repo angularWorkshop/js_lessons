@@ -1,27 +1,21 @@
 'use strict';
 
-export function getStatusLabel(statusCode, customLabel) {
-  switch (statusCode) {
-    case 'draft':
-      return 'Draft';
-    case 'review':
-      return 'In review';
-    case 'published':
-      return 'Published';
-    case 'archived':
-      return 'Archived';
-    default:
-      return customLabel ?? 'Unknown status';
-  }
+export function sumInclusiveRange(start, end) {
+  let total = 0;
+
+  // TODO: use a for loop and add every number from start to end to total
+
+  return total;
 }
 
-export function buildStatusState(statusCode, customLabel) {
-  const label = getStatusLabel(statusCode, customLabel);
+export function buildRangeSumState(start, end) {
+  const total = sumInclusiveRange(start, end);
 
   return {
-    statusCode,
-    customLabel,
-    label,
-    displayLine: `Status: ${label}`,
+    start,
+    end,
+    total,
+    numbersCount: 0, // TODO: calculate how many numbers are in the inclusive range
+    label: `Sum from ${start} to ${end} is ${total}`,
   };
 }

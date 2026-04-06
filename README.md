@@ -1,31 +1,50 @@
-# Topic 3.2 - Status Label with switch and Fallback
+# Topic 4.1 - Sum a Range with a `for` Loop
 
 ## Goal
 
-This exercise trains one more common branching pattern:
-we map a known code to a readable label, and if the code is unknown, we use a fallback value.
+This exercise is the first calm introduction to loops.
+We do not start with something abstract. We take one simple task:
+add all numbers from `start` to `end`, one by one.
+
+## What you are training
+
+- read a `for` loop as a sequence of repeated steps
+- use an accumulator variable that stores the running result
+- return a final value after the loop finishes
+- build a predictable state object from the computed result
 
 ## Task
 
 Finish `src/index.js`.
 
-1. Use `switch` in `getStatusLabel`.
-2. Return the correct label for known status codes.
-3. For an unknown code, return `customLabel ?? 'Unknown status'`.
-4. Keep `buildStatusState` aligned with the final label.
+1. In `sumInclusiveRange`, create a `for` loop from `start` to `end`.
+2. Add each current number to `total`.
+3. In `buildRangeSumState`, calculate `numbersCount`.
+4. Keep the returned object aligned with the final sum.
 
 ## Expected runtime result
 
-- `'draft'` becomes `'Draft'`
-- `'review'` becomes `'In review'`
-- an unknown code uses `customLabel` when it exists
-- an unknown code without a custom label uses `'Unknown status'`
+- `sumInclusiveRange(1, 4)` should return `10`
+- `sumInclusiveRange(3, 3)` should return `3`
+- `buildRangeSumState(2, 5)` should return:
+
+```js
+{
+  start: 2,
+  end: 5,
+  total: 14,
+  numbersCount: 4,
+  label: 'Sum from 2 to 5 is 14',
+}
+```
 
 ## Why this matters
 
-- `switch` is useful when one value can lead to several named outcomes
-- fallback logic should be explicit, not hidden
-- `??` is different from `||`: an empty string should not be replaced automatically
+A loop is useful when the same action must happen many times.
+Here the repeated action is simple:
+"take the next number and add it to the current total".
+
+That same pattern appears later in arrays, DOM processing, and data transformation.
 
 ## StackBlitz auto-check mode
 
