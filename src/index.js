@@ -1,7 +1,14 @@
 'use strict';
 
 export function canStartWorkshop(age, acceptedRules, hasParentConsent) {
-  // TODO: implement the access rules described in the README.
+  if (age >= 18) {
+    return acceptedRules === true;
+  }
+
+  if (age >= 14) {
+    return acceptedRules === true && hasParentConsent === true;
+  }
+
   return false;
 }
 
