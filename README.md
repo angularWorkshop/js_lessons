@@ -1,22 +1,21 @@
-# js_lessons
+﻿# Topic 5.2 - Find the First and Last Array Item
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise trains calm, basic work with array indexes.
+We handle both a normal array and an empty array without crashing the logic.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- read the first item with index `0`
+- read the last item with `length - 1`
+- return `null` for empty arrays
+- build a predictable state object
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `getFirstItem`, return the first item or `null`.
+2. In `getLastItem`, return the last item or `null`.
+3. In `buildArrayEdgesState`, return `count`, `firstItem`, `lastItem`, and `isEmpty`.
