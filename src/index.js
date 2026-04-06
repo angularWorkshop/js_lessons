@@ -1,19 +1,16 @@
 'use strict';
 
-export const studentName = 'Mila';
-export const studentCity = 'Kazan';
-export const learningTrack = 'JavaScript Basics';
+export var courseName = 'JavaScript Basics';
+export var mentorName = 'Denis';
+export var completedTasks = 0;
+completedTasks = completedTasks + 2;
+export var screenStatus = 'draft';
+screenStatus = 'ready';
 
-export let completedSteps = 0;
-completedSteps = completedSteps + 1;
-
-export const profileLine = `${studentName} studies ${learningTrack}.`;
-
-export const userCardState = {
-  studentName,
-  studentCity,
-  learningTrack,
-  completedSteps,
-  profileLine,
-  isProfileReady: true,
+export const declarationsReport = {
+  courseName,
+  mentorName,
+  completedTasks,
+  screenStatus,
+  usesVar: true,
 };
