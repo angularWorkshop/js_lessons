@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 9.2 - Registration Form Validation
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise treats form validation as a clear sequence of checks.
+You will collect values, validate each field, and reflect the result in the interface.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- read values from form fields
+- build a predictable validation result object
+- connect validation output to error texts and submit availability
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `collectRegistrationValues`, read the current field values from the form.
+2. In `validateRegistration`, return field errors and the final `isValid` flag.
+3. In `syncRegistrationUI`, write error messages into the DOM and disable the submit button when the form is invalid.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
