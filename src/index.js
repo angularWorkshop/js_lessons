@@ -6,7 +6,11 @@ export function sanitizeUserName(rawName) {
 }
 
 export function parseAge(rawAge) {
-  if (rawAge === '' || rawAge === null || rawAge === undefined) {
+  if (rawAge === null || rawAge === undefined) {
+    return null;
+  }
+
+  if (typeof rawAge === 'string' && rawAge.trim() === '') {
     return null;
   }
 
