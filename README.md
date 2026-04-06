@@ -1,22 +1,63 @@
-# js_lessons
+﻿# Topic 4.2 - Split a Long Script into Small Functions
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise introduces the main job of a function:
+move one small piece of logic into a named block that we can call again later.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+Instead of one long script that does everything at once,
+we split the work into small understandable steps.
 
-Recommended workflow:
+## What you are training
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+- create a function with parameters
+- return a result from a function
+- move one responsibility into one function
+- compose a final state object from smaller helper functions
 
-Scripts:
+## Task
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+Finish `src/index.js`.
+
+1. `buildStudentFullName` should join first and last name.
+2. `calculateProgressPercent` should return a rounded percentage.
+3. If `totalLessons` is `0`, return `0` instead of dividing by zero.
+4. `buildStudentCardState` should reuse both helper functions.
+
+## Expected runtime result
+
+- `buildStudentFullName('Anna', 'Petrova')` should return `'Anna Petrova'`
+- `calculateProgressPercent(3, 4)` should return `75`
+- `buildStudentCardState('Max', 'Lee', 6, 10)` should return:
+
+```js
+{
+  fullName: 'Max Lee',
+  completedLessons: 6,
+  totalLessons: 10,
+  progressPercent: 60,
+  hasStarted: true,
+  statusLine: 'Max Lee: 60% completed',
+}
+```
+
+## Why this matters
+
+A good first function is not "smart".
+It is just responsible for one clear task.
+
+When every small step has a name,
+reading the code becomes much easier.
+
+## StackBlitz auto-check mode
+
+- StackBlitz starts with `npm run start:dev`
+- tests run on startup and after each save
+- terminal shows `ASSIGNMENT STATUS: COMPLETED` or `ASSIGNMENT STATUS: NOT COMPLETED`
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
