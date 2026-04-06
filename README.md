@@ -2,34 +2,19 @@
 
 ## Goal
 
-This starter branch is the first calm practice for variable declarations.
-We are not solving scope puzzles yet. The job is simpler: understand which values stay stable, which value changes once, and declare them with the right keyword.
+This completed solution shows the beginner rule for declarations in action.
+Stable values use `const`, the changing value uses `let`, and the final state object makes the result easy to inspect.
 
-## Task
+## Final result
 
-Finish `src/index.js`.
+The file exports:
 
-1. Declare the stable values for the user card.
-2. Declare `completedSteps` with the keyword that allows reassignment.
-3. Increase `completedSteps` by one.
-4. Build `profileLine` and the final `userCardState` object.
-
-## Requirements
-
-- `studentName` should be `Mila`
-- `studentCity` should be `Kazan`
-- `learningTrack` should be `JavaScript Basics`
-- `completedSteps` should become `1`
-- `profileLine` should be `Mila studies JavaScript Basics.`
-- use `const` for stable values
-- use `let` for the value that changes
-- do not use `var`
-
-## StackBlitz auto-check mode
-
-- StackBlitz starts with `npm run start:dev`
-- tests run on startup and after each save
-- terminal shows `ASSIGNMENT STATUS: COMPLETED` or `ASSIGNMENT STATUS: NOT COMPLETED`
+- `studentName`
+- `studentCity`
+- `learningTrack`
+- `completedSteps`
+- `profileLine`
+- `userCardState`
 
 ## Run locally
 

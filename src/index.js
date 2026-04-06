@@ -1,23 +1,19 @@
 'use strict';
 
-// TODO: replace placeholders with the correct stable values.
-export const studentName = 'TODO';
-export const studentCity = 'TODO';
-export const learningTrack = 'TODO';
+export const studentName = 'Mila';
+export const studentCity = 'Kazan';
+export const learningTrack = 'JavaScript Basics';
 
-// TODO: this value should start at 0 and then increase by 1.
 export let completedSteps = 0;
-completedSteps = completedSteps + 0;
+completedSteps = completedSteps + 1;
 
-// TODO: build the final profile sentence.
-export const profileLine = '';
+export const profileLine = `${studentName} studies ${learningTrack}.`;
 
-// TODO: keep the final state aligned with the values above.
 export const userCardState = {
   studentName,
   studentCity,
   learningTrack,
   completedSteps,
   profileLine,
-  isProfileReady: false,
+  isProfileReady: true,
 };
