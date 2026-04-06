@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 10.1 - Reminder Timeout State
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise treats a timeout as a small lifecycle with clear states.
+You will schedule a reminder, cancel it when needed, and keep the final state predictable.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- schedule delayed work with `setTimeout`
+- cancel scheduled work with `clearTimeout`
+- model timer lifecycle with explicit state
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `startReminder`, cancel a previous timeout if it exists and schedule a new one.
+2. In the timeout callback, move the reminder to `done`, save the delivered message, and clear `timerId`.
+3. In `stopReminder`, cancel the timeout and move the reminder to `stopped`.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
