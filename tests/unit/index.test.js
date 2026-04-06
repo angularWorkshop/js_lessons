@@ -1,37 +1,36 @@
 import { describe, expect, it } from 'vitest';
 import {
-  displayName,
-  finishedLessons,
-  hasMentorAccess,
-  mentorNote,
-  nextLessonId,
-  studentTypeState,
+  articlePreviewState,
+  editorNote,
+  isPublished,
+  likesCount,
+  scheduledAt,
 } from '../../src/index.js';
 
-describe('basic values', () => {
-  it('keeps the expected values', () => {
-    expect(displayName).toBe('Mila');
-    expect(finishedLessons).toBe(2);
-    expect(hasMentorAccess).toBe(false);
-    expect(mentorNote).toBeNull();
-    expect(nextLessonId).toBeUndefined();
+describe('type confusion repair', () => {
+  it('stores corrected runtime values', () => {
+    expect(likesCount).toBe(5);
+    expect(isPublished).toBe(false);
+    expect(editorNote).toBeNull();
+    expect(scheduledAt).toBeUndefined();
   });
 
-  it('keeps the expected types', () => {
-    expect(typeof displayName).toBe('string');
-    expect(typeof finishedLessons).toBe('number');
-    expect(typeof hasMentorAccess).toBe('boolean');
-    expect(mentorNote).toBeNull();
-    expect(nextLessonId).toBeUndefined();
+  it('stores corrected runtime types', () => {
+    expect(typeof likesCount).toBe('number');
+    expect(typeof isPublished).toBe('boolean');
+    expect(editorNote).toBeNull();
+    expect(scheduledAt).toBeUndefined();
   });
 
-  it('returns a complete state object', () => {
-    expect(studentTypeState).toEqual({
-      displayName: 'Mila',
-      finishedLessons: 2,
-      hasMentorAccess: false,
-      mentorNote: null,
-      nextLessonId: undefined,
+  it('returns a behaviorally correct preview state', () => {
+    expect(articlePreviewState()).toEqual({
+      articleTitle: 'Data Types Basics',
+      likesCount: 5,
+      isPublished: false,
+      editorNote: null,
+      scheduledAt: undefined,
+      statusLabel: 'Draft',
+      needsEditorBanner: false,
     });
   });
 });
