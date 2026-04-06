@@ -2,32 +2,12 @@
 
 ## Goal
 
-This starter branch teaches the practical beginner rule for declarations by repair.
-The file already runs, but the declarations are chosen poorly. Your task is to replace them with better ones so the final code reads like modern JavaScript.
+This completed solution shows the beginner declaration rule in its clean final form.
+Stable values use `const`, changing values use `let`, and the report object confirms that no `var` remains.
 
-## Task
+## Final result
 
-Finish `src/index.js`.
-
-1. Replace `var` with `const` for values that should stay stable.
-2. Replace `var` with `let` for values that change.
-3. Keep the runtime result the same.
-4. Update `usesVar` in the final report.
-
-## Requirements
-
-- the file must not contain `var`
-- `courseName` should use `const`
-- `mentorName` should use `const`
-- `completedTasks` should use `let`
-- `screenStatus` should use `let`
-- `declarationsReport.usesVar` should be `false`
-
-## StackBlitz auto-check mode
-
-- StackBlitz starts with `npm run start:dev`
-- tests run on startup and after each save
-- terminal shows `ASSIGNMENT STATUS: COMPLETED` or `ASSIGNMENT STATUS: NOT COMPLETED`
+The file exports one final object: `declarationsReport`.
 
 ## Run locally
 

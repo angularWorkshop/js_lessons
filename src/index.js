@@ -1,10 +1,10 @@
 'use strict';
 
-export var courseName = 'JavaScript Basics';
-export var mentorName = 'Denis';
-export var completedTasks = 0;
+export const courseName = 'JavaScript Basics';
+export const mentorName = 'Denis';
+export let completedTasks = 0;
 completedTasks = completedTasks + 2;
-export var screenStatus = 'draft';
+export let screenStatus = 'draft';
 screenStatus = 'ready';
 
 export const declarationsReport = {
@@ -12,5 +12,5 @@ export const declarationsReport = {
   mentorName,
   completedTasks,
   screenStatus,
-  usesVar: true,
+  usesVar: false,
 };
