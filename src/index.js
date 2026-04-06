@@ -1,13 +1,13 @@
 'use strict';
 
 export function uniqueTags(tags) {
-  // TODO: return an array without duplicates
-  return [];
+  return [...new Set(tags)];
 }
 
 export function buildLessonsIndex(lessons) {
-  // TODO: return a Map with lesson.id as key and lesson.title as value
-  return new Map();
+  return new Map(
+    lessons.map(lesson => [lesson.id, lesson.title]),
+  );
 }
 
 export function buildLookupState(tags, lessons) {
@@ -16,7 +16,7 @@ export function buildLookupState(tags, lessons) {
 
   return {
     uniqueTags: unique,
-    uniqueCount: 0, // TODO: number of unique tags
-    titleById: '', // TODO: title for lesson id "js-2"
+    uniqueCount: unique.length,
+    titleById: index.get('js-2'),
   };
 }
