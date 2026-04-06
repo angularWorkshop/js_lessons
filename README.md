@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 14.2 - Widget Cleanup
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise treats timers and listeners as resources that must be cleaned up explicitly.
+You will implement mount and destroy so the widget does not leave ghost behavior behind.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- register resources during mount
+- clear timers and remove listeners during destroy
+- keep destroy idempotent and predictable
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `mountWidget`, create the interval and register the click listener.
+2. In `destroyWidget`, clear the interval and remove the same listener.
+3. Make repeated destroy calls safe.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
