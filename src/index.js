@@ -1,13 +1,11 @@
 'use strict';
 
 export function serializeUserProgress(progress) {
-  // TODO: convert the object to a JSON string
-  return '';
+  return JSON.stringify(progress);
 }
 
 export function restoreUserProgress(serialized) {
-  // TODO: restore the object from JSON
-  return {};
+  return JSON.parse(serialized);
 }
 
 export function buildProgressSnapshotState(progress) {
@@ -16,7 +14,7 @@ export function buildProgressSnapshotState(progress) {
 
   return {
     serialized,
-    restoredUserName: restored.userName ?? '',
-    restoredCompletedLessons: restored.completedLessons ?? null,
+    restoredUserName: restored.userName,
+    restoredCompletedLessons: restored.completedLessons,
   };
 }
