@@ -3,13 +3,14 @@
 const courseLabel = 'JavaScript Bootcamp';
 
 export function buildPriceLabel(userName, hasCoupon) {
+  let discountLabel = '';
+
   if (hasCoupon) {
-    let discountLabel = 'coupon applied';
+    discountLabel = 'coupon applied';
   } else {
-    let discountLabel = 'regular price';
+    discountLabel = 'regular price';
   }
 
-  // TODO: make discountLabel visible here without using var
   return `${courseLabel}: ${userName} - ${discountLabel}`;
 }
 
