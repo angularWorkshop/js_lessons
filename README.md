@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 15.2 - User Card Element
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise treats a browser component as a small input/output contract.
+You will synchronize attributes with internal state and return predictable HTML.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- update internal component fields from attributes
+- derive rendered output from current state
+- keep the component predictable after multiple updates
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Update fields in `attributeChangedCallback`.
+2. Build the final HTML in `render`.
+3. Reflect the active state in both text and class name.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
