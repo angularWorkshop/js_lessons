@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 11.1 - Safe JSON Parser
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches you to treat external JSON as unreliable input.
+You will parse a draft safely, validate its shape, and return a stable fallback when something is wrong.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- wrap risky parsing in `try/catch`
+- validate object shape after successful parsing
+- return one predictable fallback object instead of crashing
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `parseLessonDraft`, parse the JSON string inside `try/catch`.
+2. If parsing fails or the object shape is invalid, return a fresh fallback draft.
+3. If the parsed value is valid, return a normalized draft object.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
