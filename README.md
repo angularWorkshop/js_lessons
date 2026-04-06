@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 9.1 - Todo Event Delegation
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise shows why one listener on the list container can be enough for many items.
+You will read the clicked target, find the related todo, and keep DOM and data in sync.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- use one click listener on a shared container
+- find the actual action through `event.target`
+- update both the todo array and the DOM item state
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `syncTodoItemUI`, update the item class, status text, and button label from `todo.done`.
+2. In `attachTodoDelegation`, add one click listener to the list and toggle the correct todo.
+3. In `buildTodoSnapshot`, replay a sequence of delegated clicks and return the final summary.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
