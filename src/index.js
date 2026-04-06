@@ -1,3 +1,6 @@
-export function hello() {
-  return 'js_lessons baseline';
+'use strict';
+
+export function countComments(comments) {
+  // TODO: count comments recursively across all nested children
+  void comments;
 }

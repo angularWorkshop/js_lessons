@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 13.1 - Count Nested Comments
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches you to use recursion on a self-repeating data structure.
+You will count every comment in a nested discussion tree.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- identify recursive structure in nested data
+- combine a base case with a repeated recursive step
+- keep the solution correct for any depth
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Walk every comment on the current level.
+2. Count the current comment and the comments inside its children.
+3. Return the total number of comments across the whole tree.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
