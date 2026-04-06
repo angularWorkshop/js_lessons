@@ -1,22 +1,27 @@
-# js_lessons
+# Capstone 1.2 - Workshop Report Modules
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This capstone turns a small beginner project into a modular codebase.
+You will keep formatting, rules, and final composition in separate files.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- split one scenario into focused modules
+- keep business rules separate from formatting helpers
+- compose a final report object from module contracts
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish the files inside `src/`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Complete the helpers in `formatters.js`.
+2. Complete the rules in `rules.js`.
+3. Compose the final report in `index.js`.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
