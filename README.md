@@ -1,22 +1,21 @@
-# js_lessons
+# Topic 6.2 - Fix a Shared Reference Bug
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches one of the most common object bugs:
+you think you created a draft, but you are still editing the original object.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- notice when two variables point to the same object
+- create a shallow copy with spread
+- prove through tests that the original was not mutated
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `createEditableProfile`, create a copy instead of returning the same object.
+2. In `renameDraftProfile`, change only the draft name.
+3. In `buildReferenceBugState`, show the original name, draft name, and whether both variables point to the same object.
+
