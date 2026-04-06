@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 12.1 - Bound Notifier Callback
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches you to use `bind` when a method will be called later as a callback.
+You will return a safe formatter that keeps access to the notifier prefix.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- understand why callbacks often lose object context
+- use `bind` to prepare a stable function for future execution
+- return reusable functions instead of executing too early
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `createSavedFormatter`, return a new function without calling it immediately.
+2. Make sure the returned function keeps the original notifier as its context.
+3. The returned callback must format later messages correctly through the external runner.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
