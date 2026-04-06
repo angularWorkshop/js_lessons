@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 12.2 - Notification Widget Inheritance
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches you to extend a base class without duplicating its logic.
+You will build a child widget that reuses base state and adds notification-specific behavior.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- call `super` correctly in a child constructor
+- add child-specific state and behavior on top of a base class
+- reuse the base snapshot instead of rewriting it
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In the child constructor, initialize the base widget through `super`.
+2. Implement the method that marks a notification as read.
+3. Extend the base snapshot with child-specific fields.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
