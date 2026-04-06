@@ -1,8 +1,9 @@
 'use strict';
 
 export function createEditableProfile(profile) {
-  // TODO: return a separate copy of the object
-  return profile;
+  return {
+    ...profile,
+  };
 }
 
 export function renameDraftProfile(profile, newName) {
