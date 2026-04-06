@@ -1,22 +1,28 @@
-# js_lessons
+# Capstone 1.1 - Interactive Playground State
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This capstone combines beginner topics into one small but coherent scenario.
+You will normalize raw input, apply discount rules, build seat labels, and return one final state object.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- normalize raw input values before using them
+- apply conditional rules to calculate totals and booking mode
+- build derived lists through a loop
+- assemble one final UI-ready state object
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Implement `normalizeVisitorName` and `parseParticipants`.
+2. Implement `buildSeatLabels` with a loop.
+3. Implement `buildPlaygroundState` and return the final snapshot.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
