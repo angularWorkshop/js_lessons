@@ -1,22 +1,22 @@
-# js_lessons
+﻿# Topic 5.3 - Transform Products for the UI
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise introduces `map()` and `find()` on a simple product list.
+One method transforms the whole list, and the other looks for one specific item.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- use `map()` to build UI-friendly objects
+- use `find()` to locate one product by id
+- return `null` when nothing is found
+- build a final state from both operations
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `buildProductCards`, use `map()`.
+2. Build each card with `id`, `title`, and `priceLabel`.
+3. In `findFeaturedProduct`, use `find()`.
+4. In `buildCatalogState`, return both the cards and the featured product name.
