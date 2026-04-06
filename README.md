@@ -1,22 +1,27 @@
-# js_lessons
+# Capstone 2.2 - Task Manager Async Screen
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This capstone turns task loading into a clear screen-state flow around an API.
+You will distinguish invalid, empty, success, and error states with async/await.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- keep screen states explicit around API calls
+- avoid network requests for invalid input
+- map API results into one final screen snapshot
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Implement `buildTaskSearchState`.
+2. Implement `loadTaskDashboard` with async/await.
+3. Distinguish invalid, empty, success, and error correctly.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
