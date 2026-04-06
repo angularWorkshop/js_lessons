@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 15.1 - Realtime Notifications State
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise models a realtime channel as a stream of typed events.
+You will update notification state differently depending on the message type.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- map incoming event types to explicit state updates
+- keep notification state stable across different message kinds
+- ignore unsupported events safely
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Return the default state in `createNotificationState`.
+2. In `applyRealtimeMessage`, handle `notification` events.
+3. Handle `heartbeat` separately and ignore unsupported types.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
