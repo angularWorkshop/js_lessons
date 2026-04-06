@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 11.1 - Screen State Machine
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise turns scattered UI signals into one final screen snapshot.
+You will model loading, error, empty, and success as explicit states instead of mixing them accidentally.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- build one stable UI-state object from raw flags
+- separate loading, error, empty, and success clearly
+- keep screen shape predictable for the rendering layer
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Return a loading state when `isLoading` is true.
+2. Return an error state when `errorMessage` exists.
+3. Return empty when there is no error and the list is empty, otherwise return success with copied items.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
