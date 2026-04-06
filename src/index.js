@@ -4,7 +4,10 @@ export function buildLessonNumbers(firstLesson, lastLesson) {
   const lessonNumbers = [];
   let current = firstLesson;
 
-  // TODO: use a while loop to push every number from firstLesson to lastLesson
+  while (current <= lastLesson) {
+    lessonNumbers.push(current);
+    current += 1;
+  }
 
   return lessonNumbers;
 }
@@ -16,7 +19,7 @@ export function buildLessonPlanState(firstLesson, lastLesson) {
     firstLesson,
     lastLesson,
     lessonNumbers,
-    count: 0, // TODO: calculate the number of lessons in the array
+    count: lessonNumbers.length,
     label: `Lessons ${firstLesson}-${lastLesson}: ${lessonNumbers.join(', ')}`,
   };
 }
