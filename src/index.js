@@ -1,36 +1,25 @@
 'use strict';
 
-export function normalizeName(rawName) {
-  if (rawName === null || rawName === '') {
-    return 'Guest';
-  }
-
-  return rawName;
+export function toNumber(rawValue) {
+  // TODO: convert the prompt value to a number.
+  // Return null for null, empty string, or invalid text.
+  return rawValue;
 }
 
-export function parseAge(rawAge) {
-  if (rawAge === null || rawAge === '') {
-    return null;
-  }
+export function sumPromptValues(firstRawValue, secondRawValue) {
+  const firstNumber = toNumber(firstRawValue);
+  const secondNumber = toNumber(secondRawValue);
 
-  const age = Number(rawAge);
-
-  if (Number.isNaN(age) || age < 0) {
-    return null;
-  }
-
-  return age;
+  return firstNumber + secondNumber;
 }
 
-export function buildSurveyState(rawName, rawAge, confirmedRules) {
-  const name = normalizeName(rawName);
-  const age = parseAge(rawAge);
+export function buildCalculatorState(firstRawValue, secondRawValue) {
+  const result = sumPromptValues(firstRawValue, secondRawValue);
 
   return {
-    name,
-    age,
-    confirmedRules,
-    canStart: age !== null && confirmedRules === true,
-    greeting: `Hello, ${name}!`,
+    firstRawValue,
+    secondRawValue,
+    result,
+    message: `Result: ${result}`,
   };
 }

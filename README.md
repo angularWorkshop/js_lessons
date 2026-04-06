@@ -1,37 +1,37 @@
-# Topic 2.2 - Safe Survey Input
+# Topic 2.2 - Fix a Calculator That Receives Strings
 
 ## Goal
 
-This exercise shows what usually comes back from browser dialogs:
+This exercise shows one of the most famous beginner mistakes in JavaScript:
 
-- `prompt(...)` returns a string or `null`
-- `confirm(...)` returns a boolean
+```js
+'2' + '3' // '23'
+```
 
-That means a beginner must not guess. We need to look at the incoming value and convert it into a clean program state step by step.
+When numbers come from `prompt(...)`, they usually arrive as strings. If we do not convert them first, the calculator starts joining text instead of adding numbers.
 
 ## Task
 
 Finish `src/index.js`.
 
-1. In `normalizeName`, return `'Guest'` if the value from `prompt` is `null` or an empty string.
-2. In `parseAge`, convert the prompt result to a number.
-3. In `parseAge`, return `null` for `null`, an empty string, text like `'abc'`, or a negative age.
-4. In `buildSurveyState`, return a predictable object with `name`, `age`, `confirmedRules`, `canStart`, and `greeting`.
+1. In `toNumber`, convert the raw prompt value to a number.
+2. Return `null` for `null`, an empty string, or text that cannot become a number.
+3. In `sumPromptValues`, add numbers only after conversion.
+4. In `buildCalculatorState`, return a predictable object with the final `result` and `message`.
 
 ## Expected runtime result
 
-- `normalizeName('Mila')` returns `'Mila'`
-- `normalizeName('')` returns `'Guest'`
-- `parseAge('19')` returns `19`
-- `parseAge('abc')` returns `null`
-- `canStart` becomes `true` only when age is valid and rules are confirmed
+- `toNumber('2')` returns `2`
+- `toNumber('abc')` returns `null`
+- `sumPromptValues('2', '3')` returns `5`
+- invalid input should produce `result: null`
+- invalid input should show the message `Enter two numbers.`
 
 ## Why this matters
 
-- browser input is not automatically ready for business logic
-- a prompt can return `null`, not only text
-- numbers from prompt usually arrive as strings
-- converting raw input early makes the rest of the program easier to trust
+- prompt input is text by default
+- a calculator must work with numbers, not with number-looking strings
+- explicit conversion removes hidden surprises from the code
 
 ## StackBlitz auto-check mode
 

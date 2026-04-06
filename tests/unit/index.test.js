@@ -1,43 +1,42 @@
 import { describe, expect, it } from 'vitest';
 import {
-  buildSurveyState,
-  normalizeName,
-  parseAge,
+  buildCalculatorState,
+  sumPromptValues,
+  toNumber,
 } from '../../src/index.js';
 
-describe('safe survey input', () => {
-  it('normalizes the name from prompt', () => {
-    expect(normalizeName('Mila')).toBe('Mila');
-    expect(normalizeName('')).toBe('Guest');
-    expect(normalizeName(null)).toBe('Guest');
+describe('string input calculator', () => {
+  it('converts prompt values to numbers', () => {
+    expect(toNumber('2')).toBe(2);
+    expect(toNumber('0')).toBe(0);
+    expect(toNumber('abc')).toBeNull();
+    expect(toNumber('')).toBeNull();
+    expect(toNumber(null)).toBeNull();
   });
 
-  it('parses age from prompt', () => {
-    expect(parseAge('19')).toBe(19);
-    expect(parseAge('0')).toBe(0);
-    expect(parseAge('abc')).toBeNull();
-    expect(parseAge('')).toBeNull();
-    expect(parseAge(null)).toBeNull();
-    expect(parseAge('-2')).toBeNull();
+  it('adds converted numbers instead of joining strings', () => {
+    expect(sumPromptValues('2', '3')).toBe(5);
+    expect(sumPromptValues('10', '7')).toBe(17);
   });
 
-  it('builds a ready-to-use survey state', () => {
-    expect(buildSurveyState('Mila', '19', true)).toEqual({
-      name: 'Mila',
-      age: 19,
-      confirmedRules: true,
-      canStart: true,
-      greeting: 'Hello, Mila!',
+  it('returns null when one of the inputs is invalid', () => {
+    expect(sumPromptValues('2', 'abc')).toBeNull();
+    expect(sumPromptValues('', '5')).toBeNull();
+  });
+
+  it('builds a predictable calculator state', () => {
+    expect(buildCalculatorState('2', '3')).toEqual({
+      firstRawValue: '2',
+      secondRawValue: '3',
+      result: 5,
+      message: 'Result: 5',
     });
-  });
 
-  it('keeps blocked state when input is invalid', () => {
-    expect(buildSurveyState('', 'abc', false)).toEqual({
-      name: 'Guest',
-      age: null,
-      confirmedRules: false,
-      canStart: false,
-      greeting: 'Hello, Guest!',
+    expect(buildCalculatorState('2', 'abc')).toEqual({
+      firstRawValue: '2',
+      secondRawValue: 'abc',
+      result: null,
+      message: 'Enter two numbers.',
     });
   });
 });
