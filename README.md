@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 14.2 - Safe Comment Rendering
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches you to treat user input as data, not raw HTML.
+You will escape dangerous characters before building a comment card string.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- escape special HTML characters
+- reuse safe text instead of raw user input
+- keep output readable for normal text and safe for dangerous text
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Escape &, <, >, ", and ' in `escapeHtml`.
+2. Use the escaped string in `renderCommentCard`.
+3. Keep the final HTML string shape stable.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
