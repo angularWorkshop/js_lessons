@@ -1,22 +1,22 @@
-# js_lessons
+﻿# Topic 5.2 - Build and Update a Shopping List
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise introduces arrays as ordinary ordered lists.
+We start from a small list and then add one more value to it.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- create an array from several values
+- add a new item to the end of the list
+- read the last item of the updated list
+- build a predictable state object from array data
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `buildShoppingList`, return an array with two starting items.
+2. In `addShoppingItem`, add the new item to the end of the list.
+3. In `buildShoppingState`, keep both the initial and the updated list.
+4. Return the correct `count` and `lastItem`.
