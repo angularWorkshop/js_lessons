@@ -26,8 +26,8 @@ Starter code already contains three functions and tests.
 ## What you need to implement
 
 1. `sanitizeUserName(rawName)`
-- trim surrounding spaces
-- return `"Guest"` if the value is empty after `trim()`
+- return `"Guest"` when the normalized name is empty
+- keep the prepared `value` variable as the base for this fallback
 
 2. `parseAge(rawAge)`
 - return `null` for empty or invalid values
@@ -50,6 +50,12 @@ Starter code already contains three functions and tests.
 - all tests pass with `npm run test`
 - no TODO remains unresolved
 - behavior is deterministic for edge cases (empty input, invalid age)
+
+## StackBlitz auto-check mode
+
+- in StackBlitz checks run automatically on startup and after each file save
+- terminal prints assignment status: `COMPLETED` or `NOT COMPLETED`
+- command used in StackBlitz: `npm run start:dev`
 
 ## Run locally
 
