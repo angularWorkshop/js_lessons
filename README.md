@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 14.1 - Quality Gate Summary
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise turns separate check results into one release decision.
+You will build a stable summary object that shows passed checks, failed checks, and final readiness.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- aggregate quality signals into one object
+- compute release readiness from failures
+- keep summary shape stable for CI or UI
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Collect passed and failed check names separately.
+2. Compute `canRelease` from the failed checks.
+3. Return one stable summary object.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
