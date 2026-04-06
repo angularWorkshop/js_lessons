@@ -1,30 +1,31 @@
-# Topic 3.1 - Fix Access Comparisons
+# Topic 3.2 - Workshop Access Rules
 
 ## Goal
 
-This starter file already has access logic, but the comparisons inside it are wrong.
-Your job is to fix the comparison expressions so the program stops making the wrong access decision.
+This exercise trains normal conditional logic with more than one rule.
+We are building a tiny access decision for a workshop, and each condition changes the final answer.
 
 ## Task
 
 Finish `src/index.js`.
 
-1. Fix the age comparison so a user who is exactly 18 is treated correctly.
-2. Fix the payment check so it works with a real boolean value.
-3. Fix the intro check so it also works with a real boolean value.
-4. Make sure `canOpenWorkshop` and the final message become correct.
+1. Adults aged 18 or older can start when they accepted the rules.
+2. Teenagers from 14 to 17 can start only when they accepted the rules and have parent consent.
+3. Users younger than 14 cannot start.
+4. Build the final state object with the correct `canStart` and `message`.
 
 ## Expected runtime result
 
-- `getAccessState(18, true, true)` should grant access
-- `getAccessState(17, true, true)` should deny access
-- `getAccessState(19, false, true)` should deny access
+- `buildWorkshopAccessState(20, true, false)` grants access
+- `buildWorkshopAccessState(16, true, true)` grants access
+- `buildWorkshopAccessState(16, true, false)` denies access
+- `buildWorkshopAccessState(12, true, true)` denies access
 
 ## Why this matters
 
-- one wrong comparison can quietly break the whole rule
-- `18` and `> 18` are not the same business decision
-- comparing booleans to strings is a very common beginner bug
+- real conditions almost never depend on only one value
+- grouping rules clearly is more important than writing a short expression
+- the result should read like a business rule, not like a puzzle
 
 ## StackBlitz auto-check mode
 
