@@ -1,14 +1,17 @@
-'use strict';
+﻿'use strict';
 
 export function sanitizeUserName(rawName) {
   const value = String(rawName ?? '').trim();
 
-  // TODO: return 'Гость' when the input is empty after trim.
+  // TODO: return "Guest" when value is empty after trim.
   return value;
 }
 
 export function parseAge(rawAge) {
-  // TODO: convert input to a number and return null when value is invalid.
+  // TODO:
+  // 1) return null for "", null, and undefined
+  // 2) convert value with Number(...)
+  // 3) return null for NaN, Infinity, and negative values
   return Number(rawAge);
 }
 
@@ -16,7 +19,7 @@ export function buildWelcomeState(rawName, rawAge, isConfirmed) {
   const name = sanitizeUserName(rawName);
   const age = parseAge(rawAge);
 
-  // TODO: allow start only when user confirmed and age is a valid number.
+  // TODO: canStart should be true only when confirmed and age is valid.
   const canStart = false;
 
   return {
@@ -24,6 +27,6 @@ export function buildWelcomeState(rawName, rawAge, isConfirmed) {
     name,
     age,
     canStart,
-    message: `Привет, ${name}!`,
+    message: `Hello, ${name}!`,
   };
 }
