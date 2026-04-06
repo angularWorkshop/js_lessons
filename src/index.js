@@ -3,7 +3,9 @@
 export function sumInclusiveRange(start, end) {
   let total = 0;
 
-  // TODO: use a for loop and add every number from start to end to total
+  for (let current = start; current <= end; current += 1) {
+    total += current;
+  }
 
   return total;
 }
@@ -15,7 +17,7 @@ export function buildRangeSumState(start, end) {
     start,
     end,
     total,
-    numbersCount: 0, // TODO: calculate how many numbers are in the inclusive range
+    numbersCount: end - start + 1,
     label: `Sum from ${start} to ${end} is ${total}`,
   };
 }
