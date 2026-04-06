@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 10.2 - async/await Dashboard Fallback
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise rewrites the loading scenario with async/await and one clear fallback path.
+You will keep the success path linear and return a stable object on error.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- read async code as a linear scenario with `await`
+- handle errors in one place with `try/catch`
+- keep return shape stable in success and failure
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Make `loadDashboardAsync` an async function.
+2. Wait for the course and lessons with `await`.
+3. In `catch`, return an `error` fallback object with empty data.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
