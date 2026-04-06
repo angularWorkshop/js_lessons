@@ -1,22 +1,50 @@
-# js_lessons
+﻿# Topic 4.2 - Reuse One Helper Function in Several Checks
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches an important idea:
+if the same rule is repeated in several places,
+it is usually better to move that rule into one helper function.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- write one small helper function for one clear rule
+- call the same helper function several times
+- combine small boolean results into a bigger final rule
+- keep the final state object readable
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. `isPassingScore` should return `true` when score is `70` or higher.
+2. `canOpenCertificate` should reuse `isPassingScore` for both scores.
+3. `buildCheckpointState` should keep separate flags for theory and practice.
+4. The final label should describe whether the certificate is unlocked.
+
+## Expected runtime result
+
+- `isPassingScore(70)` should return `true`
+- `isPassingScore(69)` should return `false`
+- `canOpenCertificate(80, 72)` should return `true`
+- `canOpenCertificate(80, 60)` should return `false`
+
+## Why this matters
+
+When one rule changes later,
+it is much safer to update it in one place than in three different places.
+
+This is one of the first real wins of functions in everyday code.
+
+## StackBlitz auto-check mode
+
+- StackBlitz starts with `npm run start:dev`
+- tests run on startup and after each save
+- terminal shows `ASSIGNMENT STATUS: COMPLETED` or `ASSIGNMENT STATUS: NOT COMPLETED`
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
