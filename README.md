@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 8.2 - Apply Interface Theme State
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise trains consistent UI updates.
+You will take one interface state and reflect it in the DOM through attributes, classes, text, and button availability.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- update several DOM properties from one logical state
+- keep theme and status changes in sync
+- read the final state back from the DOM
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `applyInterfaceState`, update theme, class, texts, and button state.
+2. In `readInterfaceState`, read the final values back from the DOM.
+3. In `buildInterfaceSnapshot`, apply the state and return the snapshot.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
