@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 10.3 - Fetch Fallback States
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise separates success, empty, and error states in one loading flow.
+You will make the final result stable even when the request fails or returns no items.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- distinguish success, empty, and error states
+- return stable objects from async flows
+- design fallbacks as part of the state model
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Return `success` when lessons are loaded and not empty.
+2. Return `empty` when the response is ok but the items array is empty.
+3. Return `error` with a fallback message when the request fails.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
