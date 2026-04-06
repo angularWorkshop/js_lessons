@@ -1,22 +1,21 @@
-# js_lessons
+# Topic 6.1 - Update Nested Settings
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise shows that a nested object is not just a big bag of values.
+When one small setting changes, the rest of the structure should stay intact.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- read nested object fields
+- return a new nested object with one changed value
+- check that unchanged values are still there
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `buildBaseSettings`, return the base settings object.
+2. In `updateEmailNotifications`, change only `notifications.email`.
+3. In `buildSettingsState`, return a state object that proves nothing else was lost.
+
