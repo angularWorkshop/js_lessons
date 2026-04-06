@@ -63,9 +63,9 @@ describe('todo event delegation', () => {
     const { listNode, todos } = createTodoEnvironment();
     attachTodoDelegation(listNode, todos);
 
-    const introButton = listNode.querySelector(
-      '[data-item-id="intro"] [data-action="toggle"]',
-    );
+    const introButton = listNode
+      .querySelector('[data-item-id="intro"]')
+      .querySelector('[data-action="toggle"]');
     introButton.dispatchEvent({ type: 'click', bubbles: true });
 
     expect(todos[0].done).toBe(true);

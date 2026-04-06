@@ -20,7 +20,8 @@ export function buildTodoSnapshot(listNode, todos, clickedIds) {
   attachTodoDelegation(listNode, todos);
 
   for (const id of clickedIds) {
-    const button = listNode.querySelector(`[data-item-id="${id}"] [data-action="toggle"]`);
+    const itemNode = listNode.querySelector(`[data-item-id="${id}"]`);
+    const button = itemNode.querySelector('[data-action="toggle"]');
     button.dispatchEvent({ type: 'click', bubbles: true });
   }
 
