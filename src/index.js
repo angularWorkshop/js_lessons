@@ -1,8 +1,8 @@
-'use strict';
+﻿'use strict';
 
 export function sanitizeUserName(rawName) {
   const value = String(rawName ?? '').trim();
-  return value === '' ? 'Гость' : value;
+  return value === '' ? 'Guest' : value;
 }
 
 export function parseAge(rawAge) {
@@ -28,6 +28,6 @@ export function buildWelcomeState(rawName, rawAge, isConfirmed) {
     name,
     age,
     canStart,
-    message: `Привет, ${name}!`,
+    message: `Hello, ${name}!`,
   };
 }
