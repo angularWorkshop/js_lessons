@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 8.1 - Read a DOM Summary
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise is the first calm step into browser DOM work.
+You will read information from a page tree and translate it into a plain JavaScript object.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- find elements with stable selectors
+- read text content from DOM nodes
+- convert DOM values into a predictable summary object
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `readCourseSummary`, find the title, status, and count nodes and return their values.
+2. In `readLessonTitles`, return the lesson titles from the DOM.
+3. In `buildDomSnapshot`, reuse both helpers and return the final page state.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
