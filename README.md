@@ -1,22 +1,21 @@
-# js_lessons
+# Topic 6.3 - Save and Restore Data with JSON
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise introduces JSON as a simple bridge between an object and a string.
+That matters when data needs to be stored or transferred.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- turn an object into a JSON string
+- restore the same data back into an object
+- build one state object from serialized and restored data
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `serializeUserProgress`, return a JSON string.
+2. In `restoreUserProgress`, parse the JSON string back into an object.
+3. In `buildProgressSnapshotState`, return the serialized string and key restored values.
+
