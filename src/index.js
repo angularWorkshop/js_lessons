@@ -1,3 +1,11 @@
-export function hello() {
-  return 'js_lessons baseline';
+'use strict';
+
+export function buildWorkflowScripts(baseScripts) {
+  return {
+    ...baseScripts,
+    dev: 'vite',
+    test: 'vitest run',
+    build: 'vite build',
+    check: 'npm run test && npm run build',
+  };
 }

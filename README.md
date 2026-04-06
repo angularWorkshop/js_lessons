@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 14.1 - Workflow Scripts Map
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise models npm scripts as a project workflow contract.
+You will preserve existing scripts and add the standard commands for development and checks.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- preserve existing script definitions
+- add standard workflow commands
+- combine checks into one project-level command
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Keep every existing script from `baseScripts`.
+2. Add `dev`, `test`, `build`, and `check`.
+3. Make `check` run test and build together.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
