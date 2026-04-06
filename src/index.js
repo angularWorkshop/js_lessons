@@ -1,13 +1,19 @@
 ﻿'use strict';
 
 export function getFirstItem(items) {
-  // TODO: return the first item or null for an empty array
-  return null;
+  if (items.length === 0) {
+    return null;
+  }
+
+  return items[0];
 }
 
 export function getLastItem(items) {
-  // TODO: return the last item or null for an empty array
-  return null;
+  if (items.length === 0) {
+    return null;
+  }
+
+  return items[items.length - 1];
 }
 
 export function buildArrayEdgesState(items) {
@@ -15,6 +21,6 @@ export function buildArrayEdgesState(items) {
     count: items.length,
     firstItem: getFirstItem(items),
     lastItem: getLastItem(items),
-    isEmpty: false, // TODO: items.length === 0
+    isEmpty: items.length === 0,
   };
 }
