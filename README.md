@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 13.2 - ID Generator
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches you to treat a generator as a lazy source of values.
+You will return one new identifier each time the consumer asks for it.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- use `function*` and `yield`
+- preserve internal state across `next()` calls
+- build values lazily instead of creating an array up front
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Create a generator function called `createIdGenerator`.
+2. Start from the provided number and increment after every yielded value.
+3. Yield IDs in the format `prefix-number`.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
