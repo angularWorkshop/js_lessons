@@ -1,22 +1,20 @@
-# js_lessons
+# Topic 6.2 - Merge Default Settings
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+Real applications often have default values and user overrides.
+This exercise shows how to combine them without writing long repetitive code.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- merge objects with spread
+- keep defaults unless the user provided a replacement
+- read the final object with destructuring
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `mergeWorkshopSettings`, merge defaults and user values.
+2. In `buildSettingsSummary`, destructure the merged result and build the final label.
+
