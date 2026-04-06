@@ -1,14 +1,26 @@
 'use strict';
 
 export function toNumber(rawValue) {
-  // TODO: convert the prompt value to a number.
-  // Return null for null, empty string, or invalid text.
-  return rawValue;
+  if (rawValue === null || rawValue === '') {
+    return null;
+  }
+
+  const numberValue = Number(rawValue);
+
+  if (Number.isNaN(numberValue)) {
+    return null;
+  }
+
+  return numberValue;
 }
 
 export function sumPromptValues(firstRawValue, secondRawValue) {
   const firstNumber = toNumber(firstRawValue);
   const secondNumber = toNumber(secondRawValue);
+
+  if (firstNumber === null || secondNumber === null) {
+    return null;
+  }
 
   return firstNumber + secondNumber;
 }
@@ -20,6 +32,6 @@ export function buildCalculatorState(firstRawValue, secondRawValue) {
     firstRawValue,
     secondRawValue,
     result,
-    message: `Result: ${result}`,
+    message: result === null ? 'Enter two numbers.' : `Result: ${result}`,
   };
 }
