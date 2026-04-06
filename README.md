@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 12.2 - Lesson Progress Class
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise treats a class as a compact way to describe instance state and behavior.
+You will build a lesson progress entity with bounded updates and a stable snapshot.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- use a constructor to initialize instance state
+- update state through small focused methods
+- return a stable snapshot for UI or tests
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Implement the methods that set total steps and complete the next step.
+2. Prevent `completedSteps` from going beyond `totalSteps`.
+3. Return a stable snapshot through `getSnapshot`.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
