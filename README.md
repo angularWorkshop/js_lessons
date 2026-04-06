@@ -1,22 +1,21 @@
-# js_lessons
+# Topic 6.3 - Remove Duplicates and Build a Quick Lookup
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise gives two concrete tools for everyday data work.
+`Set` helps keep only unique values, and `Map` helps find a value by key.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- remove duplicates with `Set`
+- build a quick lookup table with `Map`
+- return one readable state object from both results
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `uniqueTags`, return the tag list without duplicates.
+2. In `buildLessonsIndex`, return a `Map` from lesson id to lesson title.
+3. In `buildLookupState`, reuse both helpers and return the final state object.
+
