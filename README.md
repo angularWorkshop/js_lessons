@@ -1,22 +1,27 @@
-# js_lessons
+# Capstone 2.1 - Task Manager State and Storage
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This capstone turns task data, filters, and persistence into one coherent browser-style state model.
+You will add tasks, toggle completion, filter the list, and restore the saved view.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- manage list state and derived filtered view
+- keep ids stable while adding tasks
+- persist useful UI context to storage with a safe fallback
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Implement the base state helpers.
+2. Implement add/toggle/filter behavior.
+3. Persist and restore the user view in storage.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
