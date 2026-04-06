@@ -1,14 +1,25 @@
 'use strict';
 
 export function normalizeName(rawName) {
-  // TODO: return 'Guest' when prompt returned null or an empty string.
+  if (rawName === null || rawName === '') {
+    return 'Guest';
+  }
+
   return rawName;
 }
 
 export function parseAge(rawAge) {
-  // TODO: convert the prompt result to a number.
-  // Return null for null, empty string, text, or a negative age.
-  return rawAge;
+  if (rawAge === null || rawAge === '') {
+    return null;
+  }
+
+  const age = Number(rawAge);
+
+  if (Number.isNaN(age) || age < 0) {
+    return null;
+  }
+
+  return age;
 }
 
 export function buildSurveyState(rawName, rawAge, confirmedRules) {
@@ -19,7 +30,7 @@ export function buildSurveyState(rawName, rawAge, confirmedRules) {
     name,
     age,
     confirmedRules,
-    canStart: false,
+    canStart: age !== null && confirmedRules === true,
     greeting: `Hello, ${name}!`,
   };
 }
