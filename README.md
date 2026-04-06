@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 13.2 - Lazy Range
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches you to use a generator for a lazy number range.
+You will support both forward and backward movement and reject a zero step.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- generate range values on demand
+- stop correctly for ascending and descending sequences
+- guard invalid parameters explicitly
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Throw an error when step is zero.
+2. Yield values from `from` to `to` inclusively for ascending ranges.
+3. Yield values downward for descending ranges.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
