@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 10.3 - Fetch JSON Success State
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise walks through the full path from fetch response to parsed JSON and final app state.
+You will validate the response, read JSON, and build a success result for the UI.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- wait for a fetch response
+- validate `response.ok` before parsing
+- convert parsed server data into clean app state
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Call `fetchImpl('/api/lessons')` and wait for the response.
+2. Throw an error when `response.ok` is false.
+3. Parse JSON and return a success state with lesson titles and a message.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
