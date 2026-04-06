@@ -2,43 +2,51 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
-  currentStep,
-  isFixed,
-  repairState,
-  scriptName,
-  scriptPurpose,
-  statusLine,
+  completedSteps,
+  learningTrack,
+  profileLine,
+  studentCity,
+  studentName,
+  userCardState,
 } from '../../src/index.js';
 
-describe('source structure', () => {
+describe('declaration style', () => {
   it('keeps strict mode as the first statement', () => {
     const sourcePath = path.resolve(process.cwd(), 'src/index.js');
     const source = fs.readFileSync(sourcePath, 'utf8');
 
     expect(source.trimStart().startsWith("'use strict';")).toBe(true);
   });
+
+  it('uses const and let in the right places', () => {
+    const sourcePath = path.resolve(process.cwd(), 'src/index.js');
+    const source = fs.readFileSync(sourcePath, 'utf8');
+
+    expect(source).toMatch(/export const studentName =/);
+    expect(source).toMatch(/export const studentCity =/);
+    expect(source).toMatch(/export const learningTrack =/);
+    expect(source).toMatch(/export let completedSteps =/);
+    expect(source).not.toMatch(/\bvar\b/);
+  });
 });
 
-describe('repaired script values', () => {
-  it('stores the repaired constants', () => {
-    expect(scriptName).toBe('Starter Repair');
-    expect(scriptPurpose).toBe('Learn how a small script is organized.');
-    expect(currentStep).toBe(2);
-    expect(isFixed).toBe(true);
+describe('user card values', () => {
+  it('stores the expected values', () => {
+    expect(studentName).toBe('Mila');
+    expect(studentCity).toBe('Kazan');
+    expect(learningTrack).toBe('JavaScript Basics');
+    expect(completedSteps).toBe(1);
+    expect(profileLine).toBe('Mila studies JavaScript Basics.');
   });
 
-  it('builds the final status line', () => {
-    expect(statusLine).toBe('Starter Repair: step 2 is ready.');
-  });
-
-  it('returns the repaired state object', () => {
-    expect(repairState).toEqual({
-      strictMode: true,
-      scriptName: 'Starter Repair',
-      scriptPurpose: 'Learn how a small script is organized.',
-      currentStep: 2,
-      isFixed: true,
-      statusLine: 'Starter Repair: step 2 is ready.',
+  it('returns the final card state', () => {
+    expect(userCardState).toEqual({
+      studentName: 'Mila',
+      studentCity: 'Kazan',
+      learningTrack: 'JavaScript Basics',
+      completedSteps: 1,
+      profileLine: 'Mila studies JavaScript Basics.',
+      isProfileReady: true,
     });
   });
 });

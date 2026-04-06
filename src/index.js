@@ -1,17 +1,23 @@
 'use strict';
 
-export const scriptName = 'Starter Repair';
-export const scriptPurpose = 'Learn how a small script is organized.';
-export const currentStep = 2;
-export const isFixed = true;
+// TODO: replace placeholders with the correct stable values.
+export const studentName = 'TODO';
+export const studentCity = 'TODO';
+export const learningTrack = 'TODO';
 
-export const statusLine = `${scriptName}: step ${currentStep} is ready.`;
+// TODO: this value should start at 0 and then increase by 1.
+export let completedSteps = 0;
+completedSteps = completedSteps + 0;
 
-export const repairState = {
-  strictMode: true,
-  scriptName,
-  scriptPurpose,
-  currentStep,
-  isFixed,
-  statusLine,
+// TODO: build the final profile sentence.
+export const profileLine = '';
+
+// TODO: keep the final state aligned with the values above.
+export const userCardState = {
+  studentName,
+  studentCity,
+  learningTrack,
+  completedSteps,
+  profileLine,
+  isProfileReady: false,
 };
