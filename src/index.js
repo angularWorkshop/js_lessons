@@ -1,8 +1,18 @@
 'use strict';
 
 export function getStatusLabel(statusCode, customLabel) {
-  // TODO: implement this function with switch and a nullish fallback.
-  return '';
+  switch (statusCode) {
+    case 'draft':
+      return 'Draft';
+    case 'review':
+      return 'In review';
+    case 'published':
+      return 'Published';
+    case 'archived':
+      return 'Archived';
+    default:
+      return customLabel ?? 'Unknown status';
+  }
 }
 
 export function buildStatusState(statusCode, customLabel) {
