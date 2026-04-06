@@ -1,15 +1,22 @@
 'use strict';
 
 export function buildAddress(city, country) {
-  // TODO: return an object with city and country
-  return {};
+  return {
+    city,
+    country,
+  };
 }
 
 export function buildUserProfile(firstName, lastName, city, country) {
   const address = buildAddress(city, country);
 
-  // TODO: return one profile object
-  return {};
+  return {
+    firstName,
+    lastName,
+    fullName: `${firstName} ${lastName}`,
+    address,
+    isActive: true,
+  };
 }
 
 export function buildProfileState(firstName, lastName, city, country) {
@@ -17,6 +24,6 @@ export function buildProfileState(firstName, lastName, city, country) {
 
   return {
     profile,
-    summary: '', // TODO: `${profile.fullName} - ${profile.address.city}, ${profile.address.country}`
+    summary: `${profile.fullName} - ${profile.address.city}, ${profile.address.country}`,
   };
 }
