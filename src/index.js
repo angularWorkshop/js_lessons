@@ -9,7 +9,7 @@ export function sanitizeUserName(rawName) {
 
 export function parseAge(rawAge) {
   // TODO:
-  // 1) return null for "", null, and undefined
+  // 1) return null for "", whitespace-only strings, null, and undefined
   // 2) convert value with Number(...)
   // 3) return null for NaN, Infinity, and negative values
   return Number(rawAge);
