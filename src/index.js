@@ -1,13 +1,11 @@
 'use strict';
 
 export function calculateDiscountAmount(basePrice, discountPercent) {
-  // TODO: calculate how much money should be subtracted from the base price.
-  return 0;
+  return (basePrice * discountPercent) / 100;
 }
 
 export function calculateFinalPrice(basePrice, discountPercent) {
-  // TODO: use calculateDiscountAmount and return the final price after discount.
-  return basePrice;
+  return basePrice - calculateDiscountAmount(basePrice, discountPercent);
 }
 
 export function buildPriceState(basePrice, discountPercent) {
