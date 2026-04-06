@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 15.2 - Safe postMessage Filter
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise treats postMessage as external input that must be validated.
+You will filter messages by origin and type before applying a theme update.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- check origin before trusting a message
+- validate message shape before changing state
+- keep a stable result contract for accepted and rejected messages
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Reject messages from the wrong origin.
+2. Reject messages with unsupported types or invalid theme payloads.
+3. Return a stable result object for both accepted and rejected messages.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
