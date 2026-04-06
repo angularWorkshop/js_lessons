@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 7.2 - Split Utilities into Modules
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise shows the first practical step away from one giant file.
+You will keep small utilities in separate modules and connect them through `import` and `export`.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- export helpers from separate files
+- import them into the main file
+- keep one responsibility per module
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish the files in `src/`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `format-name.js`, build a clean display name.
+2. In `calculate-progress.js`, return a rounded percentage.
+3. In `index.js`, reuse both utilities to build the final student card.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
