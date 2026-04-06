@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 7.1 - Fix Scope Visibility
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise shows a very common scope mistake:
+a variable is declared inside a block and then used outside of it.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- understand where a variable is visible
+- fix block scope issues without using `var`
+- see how local and outer values can work together
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `buildPriceLabel`, make `discountLabel` visible where the final string is created.
+2. Do not use `var`.
+3. In `buildScopeSnapshot`, return the expected values after the scope bug is fixed.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
