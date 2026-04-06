@@ -2,13 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
-  consoleLine,
-  courseName,
-  firstScriptState,
-  introMessage,
-  isReady,
-  lessonNumber,
-  studentName,
+  currentStep,
+  isFixed,
+  repairState,
+  scriptName,
+  scriptPurpose,
+  statusLine,
 } from '../../src/index.js';
 
 describe('source structure', () => {
@@ -20,28 +19,26 @@ describe('source structure', () => {
   });
 });
 
-describe('first script values', () => {
-  it('stores the main constants of the script', () => {
-    expect(courseName).toBe('JavaScript Start');
-    expect(studentName).toBe('Mila');
-    expect(lessonNumber).toBe(1);
-    expect(isReady).toBe(true);
+describe('repaired script values', () => {
+  it('stores the repaired constants', () => {
+    expect(scriptName).toBe('Starter Repair');
+    expect(scriptPurpose).toBe('Learn how a small script is organized.');
+    expect(currentStep).toBe(2);
+    expect(isFixed).toBe(true);
   });
 
-  it('builds readable output lines', () => {
-    expect(introMessage).toBe('Hello, Mila!');
-    expect(consoleLine).toBe('Hello, Mila! Lesson 1 is ready.');
+  it('builds the final status line', () => {
+    expect(statusLine).toBe('Starter Repair: step 2 is ready.');
   });
 
-  it('returns the complete final state object', () => {
-    expect(firstScriptState).toEqual({
+  it('returns the repaired state object', () => {
+    expect(repairState).toEqual({
       strictMode: true,
-      courseName: 'JavaScript Start',
-      studentName: 'Mila',
-      lessonNumber: 1,
-      isReady: true,
-      introMessage: 'Hello, Mila!',
-      consoleLine: 'Hello, Mila! Lesson 1 is ready.',
+      scriptName: 'Starter Repair',
+      scriptPurpose: 'Learn how a small script is organized.',
+      currentStep: 2,
+      isFixed: true,
+      statusLine: 'Starter Repair: step 2 is ready.',
     });
   });
 });

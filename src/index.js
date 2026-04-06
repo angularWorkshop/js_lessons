@@ -1,23 +1,19 @@
 'use strict';
 
-export const courseName = 'TODO';
-export const studentName = 'TODO';
-export const lessonNumber = 0;
-export const isReady = false;
+export const scriptName = 'TODO';
+export const scriptPurpose = 'TODO';
+export const currentStep = 0;
+export const isFixed = false;
 
-// TODO: build a greeting for the current student.
-export const introMessage = '';
+// TODO: describe the repaired result in one short line.
+export const statusLine = '';
 
-// TODO: build the final output line for the script.
-export const consoleLine = '';
-
-// TODO: mark strictMode correctly and keep the rest of the fields in sync.
-export const firstScriptState = {
+// TODO: update strictMode and keep the rest of the values aligned.
+export const repairState = {
   strictMode: false,
-  courseName,
-  studentName,
-  lessonNumber,
-  isReady,
-  introMessage,
-  consoleLine,
+  scriptName,
+  scriptPurpose,
+  currentStep,
+  isFixed,
+  statusLine,
 };
