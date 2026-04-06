@@ -1,22 +1,27 @@
-# js_lessons
+# Topic 11.2 - Persist Theme and Filters
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This exercise teaches you to treat browser storage as simple UI memory.
+You will normalize preferences before saving and restore them safely with a fallback.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- save objects to `localStorage` through JSON
+- restore browser preferences defensively
+- normalize theme and filter values before using them
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. In `savePreferences`, normalize the incoming value and store it as JSON.
+2. In `loadPreferences`, read the storage key and restore preferences safely.
+3. Return stable defaults when the key is missing or its value is broken.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
