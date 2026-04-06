@@ -1,13 +1,26 @@
 'use strict';
 
 export function buildBaseSettings() {
-  // TODO: return the full base settings object
-  return {};
+  return {
+    appearance: {
+      theme: 'light',
+      fontSize: 'medium',
+    },
+    notifications: {
+      email: true,
+      sms: false,
+    },
+  };
 }
 
 export function updateEmailNotifications(settings, enabled) {
-  // TODO: return a new settings object
-  return settings;
+  return {
+    ...settings,
+    notifications: {
+      ...settings.notifications,
+      email: enabled,
+    },
+  };
 }
 
 export function buildSettingsState(enabled) {
@@ -15,10 +28,10 @@ export function buildSettingsState(enabled) {
   const updated = updateEmailNotifications(original, enabled);
 
   return {
-    originalEmail: original.notifications?.email ?? null,
-    updatedEmail: updated.notifications?.email ?? null,
-    smsStillEnabled: null, // TODO: read updated.notifications.sms
-    themeStill: '', // TODO: read updated.appearance.theme
+    originalEmail: original.notifications.email,
+    updatedEmail: updated.notifications.email,
+    smsStillEnabled: updated.notifications.sms,
+    themeStill: updated.appearance.theme,
     sameReference: original === updated,
   };
 }
