@@ -1,22 +1,27 @@
-# js_lessons
+# Capstone 3.2 - Dashboard Widget Lifecycle
 
-Base repository for EduTec JavaScript course exercises.
+## Goal
 
-Each exercise should branch from `main` into:
+This capstone treats timers and listeners as owned resources.
+You will mount a widget, destroy it safely, and report whether the module is ready for release.
 
-- `lesson-topic-XX-exercise-YY-slug`
-- `answer-topic-XX-exercise-YY-slug`
+## What you are training
 
-Recommended workflow:
+- register widget resources explicitly on mount
+- clean them up symmetrically and idempotently on destroy
+- derive release readiness from quality checks and remaining active resources
 
-1. Branch from `main` into `lesson-topic-XX-exercise-YY-slug`.
-2. Copy files from `templates/exercise/` into the repository root.
-3. Adapt `README.md`, `src/index.js`, and tests for the specific task.
-4. Ensure lesson branch has failing tests for unfinished `TODO`s.
-5. Create `answer-topic-XX-exercise-YY-slug` from the lesson branch and finish the solution.
+## Task
 
-Scripts:
+Finish `src/index.js`.
 
-- `npm run test` - run Vitest once
-- `npm run test:watch` - run Vitest in watch mode
-- `npm run check` - run all required checks
+1. Implement mount and destroy.
+2. Keep destroy idempotent.
+3. Implement the final release snapshot.
+
+## Run locally
+
+```bash
+npm install
+npm run test
+```
