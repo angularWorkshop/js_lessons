@@ -1,23 +1,25 @@
 'use strict';
 
-export const articleTitle = 'Data Types Basics';
+export function normalizeName(rawName) {
+  // TODO: return 'Guest' when prompt returned null or an empty string.
+  return rawName;
+}
 
-export const likesCount = 5;
+export function parseAge(rawAge) {
+  // TODO: convert the prompt result to a number.
+  // Return null for null, empty string, text, or a negative age.
+  return rawAge;
+}
 
-export const isPublished = false;
+export function buildSurveyState(rawName, rawAge, confirmedRules) {
+  const name = normalizeName(rawName);
+  const age = parseAge(rawAge);
 
-export const editorNote = null;
-
-export const scheduledAt = undefined;
-
-export function articlePreviewState() {
   return {
-    articleTitle,
-    likesCount,
-    isPublished,
-    editorNote,
-    scheduledAt,
-    statusLabel: isPublished ? 'Published' : 'Draft',
-    needsEditorBanner: editorNote !== null,
+    name,
+    age,
+    confirmedRules,
+    canStart: false,
+    greeting: `Hello, ${name}!`,
   };
 }

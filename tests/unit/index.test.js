@@ -1,36 +1,43 @@
 import { describe, expect, it } from 'vitest';
 import {
-  articlePreviewState,
-  editorNote,
-  isPublished,
-  likesCount,
-  scheduledAt,
+  buildSurveyState,
+  normalizeName,
+  parseAge,
 } from '../../src/index.js';
 
-describe('type confusion repair', () => {
-  it('stores corrected runtime values', () => {
-    expect(likesCount).toBe(5);
-    expect(isPublished).toBe(false);
-    expect(editorNote).toBeNull();
-    expect(scheduledAt).toBeUndefined();
+describe('safe survey input', () => {
+  it('normalizes the name from prompt', () => {
+    expect(normalizeName('Mila')).toBe('Mila');
+    expect(normalizeName('')).toBe('Guest');
+    expect(normalizeName(null)).toBe('Guest');
   });
 
-  it('stores corrected runtime types', () => {
-    expect(typeof likesCount).toBe('number');
-    expect(typeof isPublished).toBe('boolean');
-    expect(editorNote).toBeNull();
-    expect(scheduledAt).toBeUndefined();
+  it('parses age from prompt', () => {
+    expect(parseAge('19')).toBe(19);
+    expect(parseAge('0')).toBe(0);
+    expect(parseAge('abc')).toBeNull();
+    expect(parseAge('')).toBeNull();
+    expect(parseAge(null)).toBeNull();
+    expect(parseAge('-2')).toBeNull();
   });
 
-  it('returns a behaviorally correct preview state', () => {
-    expect(articlePreviewState()).toEqual({
-      articleTitle: 'Data Types Basics',
-      likesCount: 5,
-      isPublished: false,
-      editorNote: null,
-      scheduledAt: undefined,
-      statusLabel: 'Draft',
-      needsEditorBanner: false,
+  it('builds a ready-to-use survey state', () => {
+    expect(buildSurveyState('Mila', '19', true)).toEqual({
+      name: 'Mila',
+      age: 19,
+      confirmedRules: true,
+      canStart: true,
+      greeting: 'Hello, Mila!',
+    });
+  });
+
+  it('keeps blocked state when input is invalid', () => {
+    expect(buildSurveyState('', 'abc', false)).toEqual({
+      name: 'Guest',
+      age: null,
+      confirmedRules: false,
+      canStart: false,
+      greeting: 'Hello, Guest!',
     });
   });
 });
