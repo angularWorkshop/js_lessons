@@ -1,8 +1,16 @@
 ﻿'use strict';
 
 export function normalizeDisplayName(rawName) {
-  // TODO: trim the string and return 'Guest' if it becomes empty
-  return rawName;
+  const trimmedName = rawName.trim();
+
+  if (trimmedName === '') {
+    return 'Guest';
+  }
+
+  const firstLetter = trimmedName[0].toUpperCase();
+  const restLetters = trimmedName.slice(1).toLowerCase();
+
+  return `${firstLetter}${restLetters}`;
 }
 
 export function buildDisplayNameState(rawName) {
@@ -11,7 +19,7 @@ export function buildDisplayNameState(rawName) {
   return {
     rawName,
     normalizedName,
-    greeting: '', // TODO: `Hello, ${normalizedName}!`
-    nameLength: 0, // TODO: length of normalizedName
+    greeting: `Hello, ${normalizedName}!`,
+    nameLength: normalizedName.length,
   };
 }
