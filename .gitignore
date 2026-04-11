@@ -2,3 +2,4 @@ node_modules/
 dist/
 coverage/
 *.log
+tests/unit/.stackblitz-index.test.mjs
