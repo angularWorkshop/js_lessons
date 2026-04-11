@@ -85,6 +85,22 @@ function createBaseMatchers(actual, invert = false) {
         invert,
       );
     },
+    toMatch(expected) {
+      let pass = false;
+
+      if (expected instanceof RegExp) {
+        pass = expected.test(String(actual));
+      } else {
+        pass = String(actual).includes(String(expected));
+      }
+
+      assert(
+        pass,
+        `Expected ${format(actual)} to match ${format(String(expected))}`,
+        `Expected ${format(actual)} not to match ${format(String(expected))}`,
+        invert,
+      );
+    },
     toHaveLength(expected) {
       const pass = actual?.length === expected;
       assert(
